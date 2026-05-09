@@ -2,6 +2,20 @@
 // AURA ENGINE - JS SETUP
 // =========================================
 
+// Optimization: Disable right-click for a premium feel
+document.addEventListener('contextmenu', e => e.preventDefault());
+
+// Optimization: Pause heavy animations when tab is inactive to save resources
+document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+        gsap.ticker.pause();
+        if (typeof lenis !== 'undefined') lenis.stop();
+    } else {
+        gsap.ticker.resume();
+        if (typeof lenis !== 'undefined') lenis.start();
+    }
+});
+
 // 1. Initialize Lenis for Smooth Scrolling
 const lenis = new Lenis({
     duration: 1.2,
@@ -286,24 +300,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // Float animation for Aura Orbs
-    gsap.to(".orb-1", {
-        y: 50,
-        x: -30,
-        duration: 6,
-        repeat: -1,
-        yoyo: true,
-        ease: "sine.inOut"
-    });
-
-    gsap.to(".orb-2", {
-        y: -40,
-        x: 40,
-        duration: 7,
-        repeat: -1,
-        yoyo: true,
-        ease: "sine.inOut"
-    });
 
     // 4. Parallax Animations (Aura Engine Scroll Effects)
     
@@ -362,5 +358,97 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         });
     }
+
+    // 6. Mobile Menu Logic
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileLinks = document.querySelectorAll('.mobile-link');
+    let isMenuOpen = false;
+
+    const toggleMenu = () => {
+        isMenuOpen = !isMenuOpen;
+        menuToggle.classList.toggle('active', isMenuOpen);
+        mobileMenu.classList.toggle('active', isMenuOpen);
+
+        if (isMenuOpen) {
+            if (typeof lenis !== 'undefined') lenis.stop(); // Stop scrolling when menu is open
+            gsap.to('.mobile-link', {
+                opacity: 1,
+                y: 0,
+                duration: 0.6,
+                stagger: 0.1,
+                ease: "power4.out",
+                delay: 0.3
+            });
+        } else {
+            if (typeof lenis !== 'undefined') lenis.start();
+            gsap.to('.mobile-link', {
+                opacity: 0,
+                y: 20,
+                duration: 0.3,
+                stagger: 0.05,
+                ease: "power2.in"
+            });
+        }
+    };
+
+    if (menuToggle) {
+        menuToggle.addEventListener('click', toggleMenu);
+    }
+
+    mobileLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            if (isMenuOpen) toggleMenu();
+        });
+    });
+
+    // 7. Success Message for Booking Form
+    const bookingForm = document.querySelector('.booking-form');
+    if (bookingForm) {
+        bookingForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const btn = bookingForm.querySelector('button');
+            const originalText = btn.textContent;
+            
+            btn.disabled = true;
+            btn.textContent = "Sending Request...";
+            
+            setTimeout(() => {
+                btn.textContent = "Request Sent! ✨";
+                bookingForm.reset();
+                
+                setTimeout(() => {
+                    btn.textContent = originalText;
+                    btn.disabled = false;
+                }, 3000);
+            }, 1500);
+        });
+    }
+
+    // 8. Smooth Scroll for all buttons with href
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                lenis.scrollTo(target);
+            }
+        });
+    });
+
+    // Special case for buttons that are not anchors
+    document.querySelectorAll('.btn-primary, .btn-secondary').forEach(btn => {
+        if (!btn.closest('a')) {
+            btn.addEventListener('click', () => {
+                if (btn.textContent.includes('Book') || btn.textContent.includes('Visit')) {
+                    const footer = document.querySelector('.main-footer');
+                    if (footer) lenis.scrollTo(footer);
+                } else if (btn.textContent.includes('Explore')) {
+                    const services = document.querySelector('.services');
+                    if (services) lenis.scrollTo(services);
+                }
+            });
+        }
+    });
 
 });
