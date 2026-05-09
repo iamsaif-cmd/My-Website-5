@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lumina | Luxury Dental Spa</title>
+
+    <!-- SEO & Meta -->
+    <meta name="description" content="Experience advanced, pain-free modern dentistry at Lumina Dental Spa.">
+
+    <!-- Google Fonts: Outfit (Modern) & Playfair Display (Luxury) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap"
+        rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Smooth Scroll Wrapper -->
+    <div id="smooth-wrapper">
+        <div id="smooth-content">
+
+            <!-- Navbar -->
+            <nav class="glass-nav">
+                <div class="nav-container">
+                    <div class="logo">Lumina<span class="dot">.</span></div>
+                    <div class="nav-links">
+                        <a href="#services">Services</a>
+                        <a href="#about">The Clinic</a>
+                        <a href="#results">Results</a>
+                    </div>
+                    <button class="btn-primary">Book Consultation</button>
+                </div>
+            </nav>
+
+            <!-- Hero Section -->
+            <section class="hero">
+                <div class="hero-image-bg">
+                    <img src="assets/hero.png" alt="Lumina Dental Spa Interior" class="bg-img">
+                    <div class="hero-overlay"></div>
+                </div>
+
+                <h1 class="hero-bg-text">LUMINA</h1>
+
+                <div class="hero-inner">
+                    <div class="hero-content glass-panel">
+                        <h1 class="hero-title">Redefining the <br> <span class="italic-serif">Dental Experience</span>
+                        </h1>
+                        <p class="hero-subtitle">Advanced technology meets spa-like comfort. Achieve your perfect smile
+                            without the anxiety.</p>
+                        <div class="hero-actions">
+                            <button class="btn-primary">Book Your Visit</button>
+                            <button class="btn-secondary">Explore Treatments</button>
+                        </div>
+                    </div>
+
+                    <!-- Abstract Code-Based Teeth Prototype -->
+                    <div class="smile-prototype glass-panel gpu-accel">
+                        <div class="prototype-header">
+                            <span class="pulse-dot"></span>
+                            <span class="prototype-title">Smile Matrix</span>
+                            <span class="prototype-subtitle">Experience the Transformation — Virtual Demo</span>
+                        </div>
+                        <div class="teeth-wrapper 3d-mode" id="threejs-teeth-container"
+                            style="height: 250px; cursor: grab;">
+                            <!-- Three.js Canvas will be injected here -->
+                            <div class="scanner-line"></div>
+                        </div>
+                        <div class="prototype-controls">
+                            <div class="prototype-status">Status: <span class="status-text">Awaiting Scan...</span>
+                            </div>
+                            <button id="btn-repair" class="btn-repair">Start Repair</button>
+                        </div>
+                        <div class="prototype-hint">Drag teeth to rotate</div>
+                    </div>
+                </div>
+
+                <!-- Abstract decorative elements for "Aura Engine" vibe -->
+                <div class="aura-orb orb-1"></div>
+                <div class="aura-orb orb-2"></div>
+            </section>
+
+            <!-- Services Section -->
+            <section id="services" class="services">
+                <div class="section-header">
+                    <h2 class="section-title">Signature <span class="italic-serif">Treatments</span></h2>
+                    <p class="section-desc">Tailored dental solutions designed to enhance your natural beauty and ensure
+                        optimal oral health.</p>
+                </div>
+
+                <div class="services-grid bento-grid">
+                    <!-- Service 1 (Large) -->
+                    <div class="service-card glass-panel bento-large">
+                        <div class="service-img-wrapper">
+                            <img src="assets/service1.png" alt="Aesthetic Dentistry" class="service-img">
+                            <div class="service-hover-glow"></div>
+                        </div>
+                        <div class="service-info">
+                            <h3>Aesthetic Dentistry</h3>
+                            <p>Complete smile makeovers, teeth whitening, and precise contouring for a flawless look. We
+                                utilize state-of-the-art 3D imaging to design your perfect smile.</p>
+                            <a href="#" class="service-link">Discover your new smile <span>→</span></a>
+                        </div>
+                    </div>
+
+                    <!-- Service 2 (Small) -->
+                    <div class="service-card glass-panel bento-small">
+                        <div class="service-img-wrapper">
+                            <img src="assets/service2.png" alt="Invisalign Aligners" class="service-img">
+                            <div class="service-hover-glow"></div>
+                        </div>
+                        <div class="service-info">
+                            <h3>Invisible Aligners</h3>
+                            <p>Straighten your teeth discreetly with custom-made, clear aligners. No wires, no
+                                discomfort.</p>
+                            <a href="#" class="service-link">Learn more <span>→</span></a>
+                        </div>
+                    </div>
+
+                    <!-- Service 3 (Small) -->
+                    <div class="service-card glass-panel bento-small">
+                        <div class="service-img-wrapper">
+                            <img src="assets/service3.png" alt="Porcelain Veneers" class="service-img">
+                            <div class="service-hover-glow"></div>
+                        </div>
+                        <div class="service-info">
+                            <h3>Porcelain Veneers</h3>
+                            <p>Ultra-thin, custom-made shells designed to cover the front surface of teeth to improve
+                                your appearance.</p>
+                            <a href="#" class="service-link">Learn more <span>→</span></a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Philosophy Section -->
+            <section id="about" class="philosophy">
+                <div class="philosophy-container">
+                    <div class="philosophy-text gpu-accel">
+                        <h2 class="huge-serif">The <br>Philosophy</h2>
+                        <p>We believe that a visit to the dentist should feel like a retreat, not a chore. By combining
+                            cutting-edge technology with unparalleled comfort, we are changing the way people feel about
+                            their smiles.</p>
+                        <p class="signature">Dr. Alexander Pierce</p>
+                    </div>
+                    <div class="philosophy-image-wrapper glass-panel gpu-accel">
+                        <img src="assets/doctor.png" alt="Dr. Alexander Pierce" class="philosophy-image">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Technology Section (Parallax) -->
+            <section id="technology" class="technology">
+                <div class="tech-bg">
+                    <img src="assets/tech.png" alt="Advanced 3D Dental Scanner" class="tech-bg-image">
+                    <div class="tech-overlay"></div>
+                </div>
+                <div class="tech-content glass-panel gpu-accel">
+                    <h2 class="section-title">Precision Meets <span class="italic-serif">Art</span></h2>
+                    <p class="section-desc">Featuring AI-driven 3D mapping and ultra-low radiation scanners, our clinic
+                        ensures your treatments are faster, safer, and completely pain-free.</p>
+                    <button class="btn-primary">Explore Technology</button>
+                </div>
+            </section>
+
+            <!-- Footer & Appointment Booking -->
+            <footer class="main-footer">
+                <div class="footer-booking glass-panel">
+                    <div class="booking-header">
+                        <h2>Ready for your <br><span class="italic-serif">Transformation?</span></h2>
+                        <p>Reserve your private consultation today and take the first step towards a flawless smile.</p>
+                    </div>
+                    <form class="booking-form">
+                        <div class="form-group">
+                            <input type="text" placeholder="Full Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" placeholder="Email Address" required>
+                        </div>
+                        <div class="form-group">
+                            <select required>
+                                <option value="" disabled selected>Select Service</option>
+                                <option value="aesthetic">Aesthetic Dentistry</option>
+                                <option value="aligners">Invisible Aligners</option>
+                                <option value="veneers">Porcelain Veneers</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn-primary w-full">Request Appointment</button>
+                    </form>
+                </div>
+                <div class="footer-bottom">
+                    <div class="footer-logo">Lumina<span class="dot">.</span></div>
+                    <p>&copy; 2026 Lumina Dental Spa. All rights reserved.</p>
+                </div>
+            </footer>
+
+        </div>
+    </div>
+
+    <!-- GSAP & Lenis -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
+
+    <!-- Three.js for True 3D Code -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+
+    <!-- Custom JS -->
+    <script src="main.js"></script>
+</body>
+
+</html>
