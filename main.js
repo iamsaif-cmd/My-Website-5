@@ -363,6 +363,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // 6. Mobile Menu Logic
     const menuToggle = document.getElementById('menu-toggle');
     const mobileMenu = document.getElementById('mobile-menu');
+    const menuClose = document.getElementById('mobile-menu-close');
     const mobileLinks = document.querySelectorAll('.mobile-link');
     let isMenuOpen = false;
 
@@ -395,6 +396,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (menuToggle) {
         menuToggle.addEventListener('click', toggleMenu);
+    }
+
+    if (menuClose) {
+        menuClose.addEventListener('click', toggleMenu);
     }
 
     mobileLinks.forEach(link => {
