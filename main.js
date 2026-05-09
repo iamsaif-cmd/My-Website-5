@@ -86,11 +86,12 @@ document.addEventListener("DOMContentLoaded", () => {
         scene.background = new THREE.Color(0x0a192f); // Deep Luxury Midnight Blue background
         const camera = new THREE.PerspectiveCamera(45, container.clientWidth / container.clientHeight, 0.1, 100);
         camera.position.set(0, 0, 15);
-        const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+        const isMobile = window.innerWidth < 768;
+        const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: !isMobile }); // Disable antialias on mobile for speed
         renderer.setClearColor(0x000000, 0); 
         renderer.setSize(container.clientWidth, container.clientHeight);
-        renderer.setPixelRatio(window.devicePixelRatio);
-        renderer.shadowMap.enabled = true; // Enable Shadows
+        renderer.setPixelRatio(isMobile ? 1 : window.devicePixelRatio); // Lower pixel ratio on mobile
+        renderer.shadowMap.enabled = !isMobile; // Disable shadows on mobile for performance
         renderer.shadowMap.type = THREE.PCFSoftShadowMap;
         container.appendChild(renderer.domElement);
 
